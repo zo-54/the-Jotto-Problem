@@ -1,2 +1,9 @@
-# the-Jotto-Problem
-Trying to find an efficient way to solve the Jotto Problem while learning Golang a bit more. Inspired by this video: https://www.youtube.com/watch?v=c33AZBnRHks&amp;t=1163s
+# Zo's solution to the Jotto Problem
+
+Taking inspiration from Autralia's very own Matt Parker, I have decided to attempt finding all the solutions to the "Jotto Problem" in Go. This is meant to serve as a coding exercis, continuing my learning of Go.
+
+For more information on the problem itself and the inspiration, see [Matt's video](https://www.youtube.com/watch?v=c33AZBnRHks).
+
+`words_alpha.txt` is sourced from [here](https://github.com/dwyl/english-words).
+
+
