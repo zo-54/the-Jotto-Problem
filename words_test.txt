@@ -1,0 +1,9 @@
+dwarf
+glyph
+jocks
+vibex
+chase
+haste
+alpha
+abhor
+muntz
