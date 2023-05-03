@@ -6,4 +6,4 @@ For more information on the problem itself and the inspiration, see [Matt's vide
 
 `words_alpha.txt` is sourced from [here](https://github.com/dwyl/english-words).
 
-
+Both word lists from `wordle_data` are sourced from [this github user](https://gist.github.com/cfreshman).
