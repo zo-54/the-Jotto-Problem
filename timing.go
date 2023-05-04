@@ -13,7 +13,7 @@ type timer struct {
 
 func newTimer(label string) *timer {
 	t := &timer{
-		label:     strings.ToTitle(label),
+		label:     strings.ToUpper(label),
 		startTime: time.Now(),
 	}
 
