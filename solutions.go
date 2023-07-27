@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"sort"
 	"strings"
 )
 
@@ -24,25 +23,26 @@ func solutionWorker(solnFound <-chan []uint32, doneChan chan<- bool) {
 			return
 		}
 
-		plainTextSolution := make([]string, 5, 5)
-
-		for i := range soln {
-			plainTextSolution[i] = wordsList[soln[i]][0]
-		}
-
-		sort.Strings(plainTextSolution)
-
-		fmt.Println(strings.Join(plainTextSolution, ", "))
+		printSolution(soln)
 	} else {
-		// TODO: Implement
-		panic("not implemented!")
-
 		for {
-			_, chanOpen := <-solnFound
+			soln, chanOpen := <-solnFound
 
 			if !chanOpen {
 				return
 			}
+
+			printSolution(soln)
 		}
 	}
+}
+
+func printSolution(soln []uint32) {
+	fmt.Print("Solution found:")
+
+	for _, binaryWord := range soln {
+		fmt.Printf("\t%s", strings.Join(wordsList[binaryWord], "/"))
+	}
+
+	fmt.Printf("\n")
 }
