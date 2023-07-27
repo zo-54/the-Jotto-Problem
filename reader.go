@@ -2,15 +2,18 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"math/bits"
 	"os"
 	"path/filepath"
+	"sort"
 )
 
-// TODO: Read all words first so anagrams aren't lost
 func fileReader(addWord chan<- uint32) {
 	t := newTimer("reading file")
+
+	var words []uint32
 
 	wordsList = make(map[uint32][]string)
 
@@ -49,11 +52,21 @@ func fileReader(addWord chan<- uint32) {
 		}
 
 		wordsList[binaryWord] = append(wordsList[binaryWord], line)
+	}
 
-		addWord <- binaryWord
+	for k := range wordsList {
+		words = append(words, k)
+	}
+
+	sort.Slice(words, func(i, j int) bool { return words[i] > words[j] })
+
+	t.end()
+
+	fmt.Printf("Found %v words (not including anagrams).\n", len(words))
+
+	for _, w := range words {
+		addWord <- w
 	}
 
 	close(addWord)
-
-	t.end()
 }
